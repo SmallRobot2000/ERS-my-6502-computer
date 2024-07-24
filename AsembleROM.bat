@@ -1,0 +1,1 @@
+vasm6502_oldstyle.exe -Fbin ROM.asm -c02 -o ROM.out

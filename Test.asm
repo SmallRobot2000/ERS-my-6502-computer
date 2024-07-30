@@ -1,41 +1,18 @@
-ACIA_DATA   = $0400
-ACIA_STATUS = $0401
-ACIA_CMD    = $0402
-ACIA_CTRL   = $0403
+IO_START   = $400
+SYS_IO_ADD = IO_START|$F0
 
-    org $c000
-main:
-  jsr init_acia
+PORT_A = SYS_IO_ADD+1
+PORT_B = SYS_IO_ADD+0
+DDRA = SYS_IO_ADD+3
+DDRB = SYS_IO_ADD+2
+      org $0700
+
+      lda #$FF
+      sta DDRA
+      sta DDRB
 
 loop:
-    lda #65
-    jsr acia_send_char
-    jmp loop
-
-init_acia:
-    pha
-    stz ACIA_STATUS ; clear status register
-    lda #%00011110  ; 8-N-1, 9600 baud
-    sta ACIA_CTRL   ; set control register
-    lda #%00001011  ; No parity or rcv echo, RTS true, receive IRQ but no
-    sta ACIA_CMD    ; set command register
-    pla
-    rts
-
-acia_send_char:
-    pha
-    sta ACIA_DATA  
-    
-    ldx #$FF
-tx_delay1:
-    lda #$FF
-tx_delay:
-    dec
-    nop
-    nop
-    nop
-    bne tx_delay
-    dex
-    bne tx_delay1
-    pla
-    rts
+      inc
+      sta PORT_A
+      sta PORT_B
+      jmp loop

@@ -1,0 +1,75 @@
+    include "include/ROM_define.asm"
+
+    org $c000
+PORT_B = SYS_PORTB 
+PORT_A = SYS_PORTA 
+DDRB =  SYS_DDRB  
+DDRA =  SYS_DDRA  
+
+ACIA    EQU $0400       ; BASE ADDRESS OF 6551 ACIA
+
+ACIAD   EQU ACIA+0      ; ACIA DATA
+ACIAS   EQU ACIA+1      ; ACIA STATUS
+ACIACMD EQU ACIA+2      ; ACIA COMMAND
+ACIACTL EQU ACIA+3      ; ACIA CONTROL
+
+reset:
+        NOP
+        NOP
+        NOP
+        SEI                     ; NO INTERRUPTS
+                                ; INITIALIZE ACIA
+
+        LDA     #$0B            ; TRANSMIT AND RECEIVE, NO INTERRUPTS
+        STA     ACIACMD
+        LDA     #$1E            ; 9600 8 N 1, USE BAUD RATE GENERATOR
+        STA     ACIACTL
+
+    lda #$FF
+    sta DDRB
+    jmp loop
+    org $E554
+loop:
+    lda #$01
+    sta PORT_B
+    ;jsr wait
+    
+    lda ACIA_STATUS
+    AND #$08                    ;Something receved
+    BEQ nothing_rx
+    lda ACIA_DATA
+    clc
+    adc #1
+    ;lda #'A'
+    ;sta ACIA_DATA
+    ;jsr wait
+    sta ACIA_DATA
+    lda #$02
+    sta PORT_B
+    ;jsr wait
+nothing_rx:   
+    jmp loop
+
+
+wait:
+
+    ldx #$FF
+    ldy #$FF
+.loopY
+    ldx #$FF
+.loopX
+    nop
+    nop
+    dex
+    bne .loopX
+    dey
+    bne .loopY
+    rts
+
+
+    rts
+
+
+
+
+    include "Xmodem.asm"

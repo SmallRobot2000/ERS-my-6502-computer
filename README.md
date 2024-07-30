@@ -19,7 +19,7 @@ I had my own OS witch was GUI, Kernel and drivers all in one, it was called ERS-
 But that is all int the past now, let's get to the present.
 Specs currently are:
 
-|||
+
 | --- | --- |
 |CPU|	65c02 @4Mhz (Maybe I will be able to make it go to 8Mhz)|
 |VDU|	N/A (plan to use Gameduino)|

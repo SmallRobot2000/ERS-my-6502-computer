@@ -4,6 +4,7 @@ This is my take at 6502 world.
 This project started in mid 2021 but I didn’t post anything, because I was very new in 6502 world and 8-bit world in general, I don't say that I'm the best now but I'm better in 8-bit computers now.
 This is a fresh new start on my "old" hardware design from 2021. The old software was a lot more finished, but it was very unstable, and I didn't want to work on it anymore, so I started from the beginning.
 The old system had:
+| | |
 | --- | --- |
 |CPU|	65c02 @4Mhz|
 |VDU|	TMS9929a|

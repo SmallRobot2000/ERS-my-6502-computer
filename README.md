@@ -14,6 +14,7 @@ The old system had:
 |RAM|	32k 62256  (with expansion to 256k but never used it)|
 |ROM|	16k used upper half of 28c256|
 |KEYBOARD|	PS/2 Keyboard design from Ben Eather (Thank you, because of you I started this my 8-bit hobby)|
+
 I had my own OS witch was GUI, Kernel and drivers all in one, it was called ERS-OS.
 But that is all int the past now, let's get to the present.
 Specs currently are:

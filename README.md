@@ -18,14 +18,17 @@ The old system had:
 I had my own OS witch was GUI, Kernel and drivers all in one, it was called ERS-OS.
 But that is all int the past now, let's get to the present.
 Specs currently are:
-CPU	65c02 @4Mhz (Maybe I will be able to make it go to 8Mhz)
-VDU	N/A (plan to use Gameduino)
-AUDIO	N/A (plan to use Gameduino)
-SERIAL	WDC6551
-STORAGE	N/A (plan to use SD card and floppy)
-RAM	32k 62256 (plan to use expansion to 256k)
-ROM	16k used upper half of 28c256
-KEYBOARD	N/A (plan to use Spectrum like matrix keyboard)
+
+|||
+| --- | --- |
+|CPU|	65c02 @4Mhz (Maybe I will be able to make it go to 8Mhz)|
+|VDU|	N/A (plan to use Gameduino)|
+|AUDIO|	N/A (plan to use Gameduino)|
+|SERIAL|	WDC6551|
+|STORAGE|	N/A (plan to use SD card and floppy)|
+|RAM|	32k 62256 (plan to use expansion to 256k)|
+|ROM|	16k used upper half of 28c256|
+|KEYBOARD|	N/A (plan to use Spectrum like matrix keyboard)|
 In this new project I aim to make a ROM what contains a custom terminal OS (something like CP/M or DOS), kernel and hardware "driver"(assembler subroutines).
 For now I got wdc6551 to work and receive my own file format.
 I plan to use Gameduino as VDP and audio, for keyboard I plan to use a Spectrum like matrix keyboard and try to get a SD card working with custom file system for speed because I will not transfer files with it because I got serial.

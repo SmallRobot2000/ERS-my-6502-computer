@@ -1,17 +1,7 @@
     include "include/ROM_define.asm"
 
     org $c000
-PORT_B = SYS_PORTB 
-PORT_A = SYS_PORTA 
-DDRB =  SYS_DDRB  
-DDRA =  SYS_DDRA  
 
-ACIA    EQU $0400       ; BASE ADDRESS OF 6551 ACIA
-
-ACIAD   EQU ACIA+0      ; ACIA DATA
-ACIAS   EQU ACIA+1      ; ACIA STATUS
-ACIACMD EQU ACIA+2      ; ACIA COMMAND
-ACIACTL EQU ACIA+3      ; ACIA CONTROL
 
 reset:
         NOP
@@ -61,8 +51,8 @@ loop:
 wait:
     phx
     phy
-    ldx #$05
-    ldy #$FF
+    ldx #$FF
+    ldy #$01
 .loopY
     ldx #$FF
 .loopX
@@ -237,7 +227,7 @@ RX_STRING_GOOD:
 RX_STRING_BAD:
     ASCIIZ 13,10,"Transfer failed!",0
 JUM_STR:
-    ASCIIZ 13,10,"Jumpingto ram ...",13,10,0
+    ASCIIZ 13,10,"Jumping to ram ...",13,10,0
 HEXarray:
     byte '0','1','2','3','4','5','6','7','8','9','A','B','C','D','E','F'
 

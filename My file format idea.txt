@@ -1,0 +1,15 @@
+cluster = 64 sectors = 64*512 = 32k
+1 sector for info and VOLUMEs	->
+first 32 bytes for info
+32-255 not used maybe for more info
+VOULUME entry start at $100 - $180 - MAX 8 VOLUMES
+$180-$1FD not used
+$1FE - 1FF - signature $55AA
+VOLUME entry -> 16 bytes	-> 8 for name 2 For start cluster 2 for number of clusters 1 for flags 3 not used
+
+Per Volume
+1 cluster for cluster data usage -> 1 byte one cluster -> |0|0|0|0|S|D|U| u - is used 0- free 1 = used, D - directory 1 - yes 0 -no, S - system cluster
+1 cluster for root
+directory = 1 cluster -> max 1024 entrys 1 entry 32 bytes
+32 bytes per entry file -> 16 bytes for name 3 for extension 1 for flags 2 for start cluster 2 for number of clusters ,8 bytes not used
+			-> 19 bytes for name 1 for flags 2 for directory cluster 2 for number of entries ,8 bytes not used

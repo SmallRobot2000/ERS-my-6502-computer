@@ -22,10 +22,10 @@ Specs currently are:
 |||
 | --- | --- |
 |CPU|	65c02 @4Mhz (Maybe I will be able to make it go to 8Mhz)|
-|VDU|	N/A (plan to use Gameduino)|
-|AUDIO|	N/A (plan to use Gameduino)|
+|VDU|	N/A (Gameduino with SPI works but nothig graphical added)|
+|AUDIO|	N/A (Gameduino with SPI works but nothig graphical added)|
 |SERIAL|	WDC6551|
-|STORAGE|	N/A (plan to use SD card and floppy)|
+|STORAGE|	N/A (SD card working read write sector plan to make custom file system, floppy planed)|
 |RAM|	32k 62256 (plan to use expansion to 256k)|
 |ROM|	16k used upper half of 28c256|
 |KEYBOARD|	N/A (plan to use Spectrum like matrix keyboard)|
